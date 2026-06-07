@@ -5,21 +5,22 @@ import AppContext from "../context/AppContext";
 import About from "./Apps/About";
 import Mail from "./Apps/Mail";
 import Projects from "./Apps/Projects";
+import Resume from "./Apps/Resume";
 
 const AppScreen = () => {
   const { state } = useContext(AppContext);
 
   return (
     <>
-      {state.About.open && (
+      {state.Biography.open && (
         <AppScreenFrame
           appInfo={Menu[0]}
           className=""
-          isActive={state.About.top}
-          isMaximized={state.About.fullscreen}
-          isMinimized={state.About.minimize}
+          isActive={state.Biography.top}
+          isMaximized={state.Biography.fullscreen}
+          isMinimized={state.Biography.minimize}
         >
-          <About isMaximized={state.About.fullscreen} />
+          <About isMaximized={state.Biography.fullscreen} />
         </AppScreenFrame>
       )}
       {state.Projects.open && (
@@ -44,6 +45,17 @@ const AppScreen = () => {
           <Mail isMaximized={state.Mail.fullscreen} />
         </AppScreenFrame>
       )}
+      {state.Resume && state.Resume.open && (
+  <AppScreenFrame
+    appInfo={Menu[3]}
+    className=""
+    isActive={state.Resume.top}
+    isMaximized={state.Resume.fullscreen}
+    isMinimized={state.Resume.minimize}
+  >
+    <Resume isMaximized={state.Resume.fullscreen} />
+  </AppScreenFrame>
+)}
     </>
   );
 };

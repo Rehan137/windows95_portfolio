@@ -17,11 +17,11 @@ const initialState = {
     top: false,
     fullscreen: false,
   },
-  About: {
-    open: false,
+  Biography: {
+    open: true,
     minimize: false,
-    closed: true,
-    top: false,
+    closed: false,
+    top: true,
     fullscreen: false,
   },
   Projects: {
@@ -31,6 +31,13 @@ const initialState = {
     top: false,
     fullscreen: false,
   },
+  Resume: {
+  open: false,
+  minimize: false,
+  closed: true,
+  top: false,
+  fullscreen: false,
+},
   previouslyActiveApp: "",
   taskbarAppStack: [],
 };
@@ -39,34 +46,19 @@ const AppState = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   const openApp = (appName) =>
-    dispatch({
-      type: OPEN_APP,
-      payload: appName,
-    });
+    dispatch({ type: OPEN_APP, payload: appName });
 
   const closeApp = (appName) =>
-    dispatch({
-      type: CLOSE_APP,
-      payload: appName,
-    });
-  const activeApp = (appName) =>
-    dispatch({
-      type: ACTIVE_APP,
-      payload: appName,
-    });
+    dispatch({ type: CLOSE_APP, payload: appName });
 
-  const minimizeApp = (appName) => {
-    dispatch({
-      type: MINIMIZE_APP,
-      payload: appName,
-    });
-  };
-  const toggleFullScreen = (appName) => {
-    dispatch({
-      type: MAXIMIZE_APP,
-      payload: appName,
-    });
-  };
+  const activeApp = (appName) =>
+    dispatch({ type: ACTIVE_APP, payload: appName });
+
+  const minimizeApp = (appName) =>
+    dispatch({ type: MINIMIZE_APP, payload: appName });
+
+  const toggleFullScreen = (appName) =>
+    dispatch({ type: MAXIMIZE_APP, payload: appName });
 
   return (
     <AppContext.Provider

@@ -1,9 +1,9 @@
 export const Menu = [
     {
-        name: "About",
+        name: "Biography",
         path: "/assets/about.png",
         deskIconSize: "w-[45px] h-[45px]",
-        headerIconSize: " h-[26px] w-[26x]",
+        headerIconSize: " h-[26px] w-[26px]",
         startIconSize: "w-[25px] h-[25px]"
     },
     {
@@ -18,6 +18,13 @@ export const Menu = [
         path: "/assets/mail.png",
         deskIconSize: "w-[48px] h-[48px]",
         headerIconSize: " h-[22px] w-[22px]",
+        startIconSize: "w-[25px] h-[25px]"
+    },
+    {
+        name: "Resume",
+        path: "/assets/resume_icon.png",
+        deskIconSize: "w-[45px] h-[45px]",
+        headerIconSize: "h-[26px] w-[26px]",
         startIconSize: "w-[25px] h-[25px]"
     },
 ];
